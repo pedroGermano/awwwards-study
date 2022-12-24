@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper{
+  position: relative;
+  display: flex;
+}
+
+.progress{
+  &__bar{
+
+  }
+}
+
+.nav{
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  flex-direction: column;
+  gap: 30px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #5c6370;
+  
+  &__list{
+
+  }
+  &__item{
+
+  }
+  &__link{
+
+  }
+}
