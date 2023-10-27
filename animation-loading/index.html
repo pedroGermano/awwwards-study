@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    html,
+    body{
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1.header{
+      font-size: 100px;
+      letter-spacing: -4px;
+      font-weight: bolder;
+      width: 100%;
+      text-align: center;
+    }
+    .header .letter{
+      display: inline-block;
+      line-height: 1em;
+    }
+
+    .titles{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-weight: bolder;
+      letter-spacing: -15px;
+      font-size: 240px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    ul.titles{
+      display: flex;
+    }
+
+    ul.blocks{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    li.block{
+      height: 100vh;
+    }
+
+    .block-1{
+      width: 1.2%;
+      margin: 0 10px;
+      background: #da0510;
+    }
+
+    .block-2{
+      width: 1.4%;
+      margin: 0 200px 0 20px;
+      background: #2001fe;
+    }
+    .block-3{
+      width: 0.8%;
+      margin: 0 40px;
+      background: #01fefe;
+    }
+    .block-4{
+      width: 2%;
+      margin: 0 400px;
+      background: #00fe00;
+    }
+    .block-5{
+      width: 0.8%;
+      margin: 0 20px;
+      background: #f4f315;
+    }
+    .block-6{
+      width: 2.8%;
+      background: #fa04f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">
+      @pedroGermano232
+    </h1>
+    <div class="titles">
+      <div class="title title-1"><h1>Website</h1></div>
+      <div class="title title-2"><h1>Mobile</h1></div>
+      <div class="title title-3"><h1>UI Design</h1></div>
+    </div>
+    <ul class="blocks">
+      <li class="block-1 block"></li>
+      <li class="block-2 block"></li>
+      <li class="block-3 block"></li>
+      <li class="block-4 block"></li>
+      <li class="block-4 block"></li>
+      <li class="block-5 block"></li>
+      <li class="block-5 block"></li>
+      <li class="block-6 block"></li>
+    </ul>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script>
+    TweenMax.staggerFrom(
+        ".titles > div",
+        0.8,
+        {
+          x: "-60",
+          ease: Power3.easeInOut,
+          opacity: "0",
+        },
+        2  
+      );
+      TweenMax.staggerTo(
+        ".titles > div",
+        0.8,
+        {
+          x: "60",
+          ease: Power3.easeInOut,
+          delay: 1.2,
+          opacity: "0",
+        },
+        2
+      );
+      TweenMax.staggerFrom(
+        "li",
+        3,
+        {
+          x: "-1600",
+          delay: 4.2,
+          ease: Expo.easeInOut
+        },
+        0.16
+      )
+
+      TweenMax.staggerTo(
+        "li",
+        2.6,
+        {
+          x: "1600",
+          delay: 6.8,
+          ease: Expo.easeInOut,
+        },
+        0.2
+      )
+      let textWrapper = document.querySelector(".header");
+      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+      anime.timeline().add({
+        targets: ".header .letter",
+        opacity: [0, 1],
+        translateY: [80, 0],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 2000,
+        delay: (el, i) => 8400 + 40 * i,
+      });
+  </script>
+</body>
+</html>
